@@ -1,0 +1,114 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Ionic Blank
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding [@itemInOut]="watchMe" (@itemInOut.done)="logAnimation($event)">
+   
+    <ion-card   >
+        
+        <ion-grid>
+            <ion-row>
+             
+              <ion-col class="timer_col">
+                  <span>Time Left: <span style="color:blueviolet" class="blink_me"> {{count}}</span> </span>
+              </ion-col>
+             
+            </ion-row>
+           
+          </ion-grid>
+        
+         
+        
+        </ion-card>
+
+  <ion-card 
+  [ngClass]="userAnswerType =='correctAnswer' ? 'correctAnswer' : userAnswerType =='wrongAnswer' ? 'wrongAnswer' : 'waitingAnswer'">
+      <ion-grid>
+          <ion-row style="font-size: larger;font-weight: bold;">
+           
+            <ion-col col-8>
+                Question:1
+            </ion-col>
+            <ion-col col-4 style="text-align: right;">
+                Multiplay
+            </ion-col>
+          </ion-row>
+         
+        </ion-grid>
+    
+      <ion-card-content>
+        <div class="question_div">
+
+          2 * 1 = {{answer}}
+
+        </div>
+      <!--  <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.</p>
+      -->
+      </ion-card-content>
+    
+     
+    
+    </ion-card>
+
+    <ion-card >
+       
+       
+        <ion-grid>
+            <ion-row>
+              <ion-col col-4>
+                <div 
+                  (mousedown)="tapEvent(this, 1,$event)"  (mouseup)="tapEvent(this, 1, $event)">
+                      <img [src]="imgSrc" class="number" >
+                </div>  
+                 
+              </ion-col>
+              <ion-col col-4  (mousedown)="myMethod(this, 2,$event)"  (mouseup)="myMethod(this, 2, $event)">
+                  <img src="assets/imgs/2.png" class="number" >
+              </ion-col>
+              <ion-col col-4  (mousedown)="myMethod(this, 3,$event)"  (mouseup)="myMethod(this, 3, $event)">
+                  <img src="assets/imgs/3.png" class="number" >
+              </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col col-4 (mousedown)="myMethod(this, 4,$event)"  (mouseup)="myMethod(this, 4, $event)">
+                    <img src="assets/imgs/4.png" class="number"  >
+                </ion-col>
+                <ion-col col-4 (mousedown)="myMethod(this, 5,$event)"  (mouseup)="myMethod(this, 5, $event)">
+                    <img src="assets/imgs/5.png" class="number"  >
+                </ion-col>
+                <ion-col col-4 (mousedown)="myMethod(this, 6,$event)"  (mouseup)="myMethod(this, 6, $event)">
+                    <img src="assets/imgs/6.png" class="number">
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                  <ion-col col-4 (mousedown)="myMethod(this, 7,$event)"  (mouseup)="myMethod(this, 7, $event)">
+                      <img src="assets/imgs/7.png" class="number">
+                  </ion-col>
+                  <ion-col col-4  (mousedown)="myMethod(this, 8,$event)"  (mouseup)="myMethod(this, 8, $event)">
+                      <img src="assets/imgs/8.png" class="number" >
+                  </ion-col>
+                  <ion-col col-4 (mousedown)="myMethod(this, 9,$event)"  (mouseup)="myMethod(this, 9, $event)">
+                      <img src="assets/imgs/9.png" class="number"  >
+                  </ion-col>
+                </ion-row>
+              <ion-row>
+                  <ion-col col-4>
+                   
+                  </ion-col>
+                  <ion-col col-4  (mousedown)="myMethod(this, 0,$event)"  (mouseup)="myMethod(this, 0, $event)">
+                      <img src="assets/imgs/0.png" class="number" >
+                  </ion-col>
+                  <ion-col col-4>
+                    
+                  </ion-col>
+                </ion-row>
+           
+          </ion-grid>
+        
+        </ion-card>
+    
+</ion-content>

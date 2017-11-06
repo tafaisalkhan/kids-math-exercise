@@ -1,0 +1,51 @@
+page-home {
+
+    .number_div{
+        text-align: -webkit-center;
+      
+    }
+
+    .number{
+        width: 80px;
+        height: 80px;
+  
+    }
+    .btn{
+        background:url(/assets/imgs/1.png);
+    }
+    .last_number{
+        width: 100px;
+        height: 100px;
+        
+    }
+    .question_div{
+        font-size: -webkit-xxx-large;
+        font-weight: bold;
+        color: green;
+        text-align: center;
+        margin-top:-20px
+    }
+    .timer_col{
+        text-align: -webkit-center;
+        font-size: -webkit-xxx-large;
+        font-weight: bold;
+    }
+    .blink_me {
+        animation: blinker 1s linear infinite;
+      }
+      
+      @keyframes blinker {  
+        50% { opacity: 0; }
+      }
+
+    .wrongAnswer{
+        background-color: red;
+    }  
+
+    .correctAnswer{
+        background-color: yellowgreen;
+    }
+    .waitingAnswer{
+        background-color: white;
+    }
+}

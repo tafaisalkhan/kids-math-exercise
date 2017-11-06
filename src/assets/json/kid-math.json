@@ -1,0 +1,152 @@
+{
+    "kids_math":
+    [
+
+ {
+      "name": "1",  
+      "question": [ 
+          
+            {
+                  "type": "table",
+                  "range": "2-2",
+                  "time": 5,
+                  "count": 5
+                 
+              
+            },
+            {
+                "type": "addition",
+                "range": "1-10",
+                "time": 5,
+                "count": 5
+               
+            
+          },
+          {
+                "type": "subtraction",
+                "range": "1-10",
+                "time": 5,
+                "count": 5
+           
+        
+            },
+            {
+                "type": "mission_backword",
+                "range": "1-100",
+                "time": 5,
+                "count": 5
+           
+        
+            },
+            {
+                "type": "mission_forword",
+                "range": "1-100",
+                "time": 5,
+                "count": 5
+           
+        
+            }
+   
+        ]
+
+    },
+    {
+        "name": "2",  
+        "question": [ 
+            
+              {
+                    "type": "table",
+                    "range": "2-2",
+                    "time": 5,
+                    "count": 5
+                   
+                
+              },
+              {
+                  "type": "addition",
+                  "range": "1-10",
+                  "time": 5,
+                  "count": 5
+                 
+              
+            },
+            {
+                  "type": "subtraction",
+                  "range": "1-10",
+                  "time": 5,
+                  "count": 5
+             
+          
+              },
+              {
+                  "type": "mission_backword",
+                  "range": "1-100",
+                  "time": 5,
+                  "count": 5
+             
+          
+              },
+              {
+                  "type": "mission_forword",
+                  "range": "1-100",
+                  "time": 5,
+                  "count": 5
+             
+          
+              }
+     
+          ]
+  
+      },
+      {
+        "name": "3",  
+        "question": [ 
+            
+              {
+                    "type": "table",
+                    "range": "2-2",
+                    "time": 5,
+                    "count": 5
+                   
+                
+              },
+              {
+                  "type": "addition",
+                  "range": "1-10",
+                  "time": 5,
+                  "count": 5
+                 
+              
+            },
+            {
+                  "type": "subtraction",
+                  "range": "1-10",
+                  "time": 5,
+                  "count": 5
+             
+          
+              },
+              {
+                  "type": "mission_backword",
+                  "range": "1-100",
+                  "time": 5,
+                  "count": 5
+             
+          
+              },
+              {
+                  "type": "mission_forword",
+                  "range": "1-100",
+                  "time": 5,
+                  "count": 5
+             
+          
+              }
+     
+          ]
+  
+      }
+    
+]
+    
+}        
