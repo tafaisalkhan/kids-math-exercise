@@ -4,10 +4,14 @@
 
  {
       "name": "1",  
-      "question": [ 
+      "questions": [ 
           
             {
                   "type": "table",
+                  "name": "Table ",
+                  "range_name": " 2 ", 
+                  "start_number": 2,
+                  "end_number": 2,
                   "range": "2-2",
                   "time": 5,
                   "count": 5
@@ -16,6 +20,10 @@
             },
             {
                 "type": "addition",
+                "name": "Addition Number",
+                "range_name": "1  to 10 ", 
+                "start_number": 1,
+                "end_number": 10,
                 "range": "1-10",
                 "time": 5,
                 "count": 5
@@ -24,6 +32,10 @@
           },
           {
                 "type": "subtraction",
+                "name": "Subtract Number",
+                "range_name": "1  to 10 ", 
+                "start_number": 1,
+                "end_number": 10,
                 "range": "1-10",
                 "time": 5,
                 "count": 5
@@ -32,6 +44,10 @@
             },
             {
                 "type": "mission_backword",
+                "name": "Missing Number Forword",
+                "range_name": "1  to 100 ", 
+                "start_number": 1,
+                "end_number": 90 ,
                 "range": "1-100",
                 "time": 5,
                 "count": 5
@@ -40,6 +56,10 @@
             },
             {
                 "type": "mission_forword",
+                "name": "Missing Number Backword",
+                "range_name": "100  to 1 ", 
+                "start_number": 90,
+                "end_number": 1,
                 "range": "1-100",
                 "time": 5,
                 "count": 5
@@ -52,7 +72,7 @@
     },
     {
         "name": "2",  
-        "question": [ 
+        "questions": [ 
             
               {
                     "type": "table",
@@ -100,7 +120,7 @@
       },
       {
         "name": "3",  
-        "question": [ 
+        "questions": [ 
             
               {
                     "type": "table",

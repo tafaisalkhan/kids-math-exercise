@@ -6,7 +6,25 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding [@itemInOut]="watchMe" (@itemInOut.done)="logAnimation($event)">
+<ion-content  [@itemInOut]="watchMe" (@itemInOut.done)="logAnimation($event)">
+<ion-card   >
+        
+        <ion-grid>
+            <ion-row>
+             
+              <ion-col class="timer_col">
+                  <span>Time Left: <span style="color:blueviolet" class="blink_me"> {{count}}</span> </span>
+              </ion-col>
+             
+            </ion-row>
+           
+          </ion-grid>
+        
+         
+        
+        </ion-card>
+    </ion-content>       
+<ion-content padding>
    
     <ion-card   >
         
