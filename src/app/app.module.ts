@@ -8,6 +8,9 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ExamDetailPage } from '../pages/exam-detail/exam-detail';
 import { SelectGreadePage } from '../pages/select-greade/select-greade';
+import { StartGamePage } from '../pages/start-game/start-game';
+import { QuizResultPage } from '../pages/quiz-result/quiz-result';
+import { DetailResultPage } from '../pages/detail-result/detail-result';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { FormsModule }    from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -36,7 +39,10 @@ const firebaseConfig = {
     MyApp,
     HomePage,
     SelectGreadePage,
-    ExamDetailPage
+    ExamDetailPage,
+    StartGamePage,
+    QuizResultPage,
+    DetailResultPage 
    
   ],
   imports: [
@@ -55,7 +61,10 @@ const firebaseConfig = {
     MyApp,
     HomePage,
     SelectGreadePage,
-    ExamDetailPage
+    ExamDetailPage,
+    StartGamePage,
+    QuizResultPage,
+    DetailResultPage 
   ],
   providers: [
     StatusBar,

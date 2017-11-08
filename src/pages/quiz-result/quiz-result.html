@@ -1,0 +1,39 @@
+<ion-header>
+    <ion-navbar color="danger">
+      <ion-title>
+       Result 
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+   
+  <ion-content>
+   
+      <ion-card>
+          <ion-card-header style="    background-color: #ea3324;
+          color: white;
+          font-size: large;
+          font-weight: 900;">
+           Percentage
+          </ion-card-header>
+          <ion-card-content style="    font-size: -webkit-xxx-large; text-align: -webkit-center; font-weight: 900;">
+              {{percentage}}%
+          </ion-card-content>
+        </ion-card>
+     
+
+      <ion-card>
+        <ion-card-header style="    background-color: #ea3324;
+        color: white;
+        font-size: large;
+        font-weight: 900;">
+          Result Chart
+        </ion-card-header>
+        <ion-card-content>
+          <canvas #barCanvas></canvas>
+        </ion-card-content>
+      </ion-card>
+   
+     
+      <button ion-button full (click)="quizDetail()" >Quiz Detail</button>
+      <button ion-button full (click)="restartQuiz()">Restart Quiz</button>
+  </ion-content>

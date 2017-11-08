@@ -12,12 +12,13 @@ import 'rxjs/add/operator/map';
 export class QuestionSingleDataProvider {
 
   title: string;
-  first_number: string;
-  sec_number: string;
-  correntAnswer: string;
-  userWrongAnswer: string;
+  first_number: number;
+  sec_number: number;
+  correct_answer: number;
+  user_answer: number;
   operartion: string;
   time: number;
+  type: string;
 
 
 }

@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { QuestionServiceProvider } from '../../providers/question-service/question-service';
 import { QuestionDataProvider } from '../../providers/question-data/question-data';
 import { HomePage } from '../../pages/home/home';
-import { LoadingController } from 'ionic-angular';
+import { StartGamePage } from '../../pages/start-game/start-game';
 /**
  * Generated class for the ExamDetailPage page.
  *
@@ -51,8 +51,8 @@ export class ExamDetailPage {
     that.questionService.generateQuestion(that.questionList);
     setTimeout(function() {
       
-      that.navCtrl.setRoot(HomePage);
-    }, 3000);
+      that.navCtrl.push(StartGamePage);
+    }, 1000);
     
     //
   }

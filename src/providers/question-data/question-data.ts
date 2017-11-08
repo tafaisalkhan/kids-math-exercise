@@ -13,7 +13,9 @@ export class QuestionDataProvider {
     questions : any;
     selectedGrade: any;
     username: any;
-
+    totalTime: number = 0;
+    totalQuestion: number = 0;
+    questionArray: QuestionSingleDataProvider[] = [];
     tableQuestion: QuestionSingleDataProvider[] = [];
     addQuestion: QuestionSingleDataProvider[] = [];
     subQuestion: QuestionSingleDataProvider[] = [];

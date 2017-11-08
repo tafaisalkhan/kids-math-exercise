@@ -35,54 +35,91 @@ export class QuestionServiceProvider {
 }
 generateQuestion(questions: any){
  debugger;
+ this.questionData.questionArray = [];
+ this.questionData.totalTime = 0;
+ this.questionData.totalQuestion = 0;
   for(let item of questions){
       console.log(item);
-      let quest = new QuestionSingleDataProvider();
-      quest.time = item.time;
+      
+     
+     
       for(let tmpQuest = 0; tmpQuest < item.count ; tmpQuest ++ ){
+        let quest = new QuestionSingleDataProvider();
+        quest.time = item.time;
         if (item.type == "table"){
           quest.operartion = "*";
-          quest.first_number = this.randomNo(item.start_number, item.end_number) +"";
-          quest.sec_number = this.randomNo(1, 10) +"";
-          
+          quest.first_number = this.randomNo(item.start_number, item.end_number) ;
+          quest.sec_number = this.randomNo(1, 10) ;
+          quest.title = "Table";
+          quest.correct_answer = quest.first_number * quest.sec_number;
+          quest.type = "table";
+          this.questionData.questionArray.push(quest);
         }
         else if (item.type == "addition"){
           quest.operartion = "+";
-          quest.first_number = this.randomNo(item.start_number, item.end_number) +"";
-          quest.sec_number = this.randomNo(item.start_number, item.end_number) +"";
-          this.questionData.addQuestion.push(quest);
+          quest.first_number = this.randomNo(item.start_number, item.end_number) ;
+          quest.sec_number = this.randomNo(item.start_number, item.end_number) ;
+          quest.title = "Addition";
+          quest.correct_answer = quest.first_number + quest.sec_number;
+          quest.type = "addition";
+          this.questionData.questionArray.push(quest);
         }
         else if (item.type == "subtraction"){
           quest.operartion = "-";
-          quest.first_number = this.randomNo(item.start_number, item.end_number) +"";
-          quest.sec_number = this.randomNo(item.start_number, item.end_number) +"";
-          this.questionData.subQuestion.push(quest);
+          quest.first_number = this.randomNo(item.start_number, item.end_number);
+          quest.sec_number = this.randomNo(item.start_number, item.end_number) ;
+          if(quest.sec_number > quest.first_number){
+            let tmp = quest.first_number;
+            quest.first_number = quest.sec_number;
+            quest.sec_number = tmp;
+          }
+          quest.title = "Subtraction";
+          quest.correct_answer = quest.first_number - quest.sec_number;
+          quest.type = "subtraction";
+          this.questionData.questionArray.push(quest);
         }
         else if (item.type == "multipul"){
           quest.operartion = "*";
-          quest.first_number = this.randomNo(item.start_number, item.end_number) +"";
-          quest.sec_number = this.randomNo(item.start_number, item.end_number) +"";
-          this.questionData.mutiQuestion.push(quest);
+          quest.first_number = this.randomNo(item.start_number, item.end_number) ;
+          quest.sec_number = this.randomNo(item.start_number, item.end_number) ;
+          quest.title = " Multipul ";
+          quest.correct_answer = quest.first_number * quest.sec_number;
+          quest.type = "multipul";
+          this.questionData.questionArray.push(quest);
         }
         else if (item.type == "divide"){
           quest.operartion = "/";
-          quest.first_number = this.randomNo(item.start_number, item.end_number) +"";
-          quest.sec_number = this.randomNo(item.start_number, item.end_number) +"";
-          this.questionData.diviQuestion.push(quest);
+          //uest.first_number = this.randomNo(item.start_number, item.end_number) ;
+          quest.sec_number = this.randomNo(item.start_number, item.end_number) ;
+          quest.first_number =  quest.sec_number * this.randomNo(1, 4)
+          quest.title = "Divided";
+          quest.correct_answer = quest.first_number / quest.sec_number;
+          quest.type = "divide";
+          this.questionData.questionArray.push(quest);
         }
         else if (item.type == "mission_backword"){
           quest.operartion = "?";
-          quest.first_number = "0"
-          quest.sec_number = this.randomNo(item.start_number, item.end_number) +"";
-          this.questionData.missionBackwordQuestion.push(quest);
+          //quest.first_number = 0
+          quest.first_number = this.randomNo(item.start_number, item.end_number) ;
+          quest.title = "Find Missing";
+          quest.correct_answer = quest.first_number - 1; 
+          quest.sec_number = quest.correct_answer - 1;
+          quest.type = "mission_backword";
+          this.questionData.questionArray.push(quest);
         }
         else if (item.type == "mission_forword"){
           quest.title = item.name
           quest.operartion = "?";
-          quest.first_number = this.randomNo(item.start_number, item.end_number) +"";
-          quest.sec_number = "0"
-          this.questionData.missingForwordQuestion.push(quest);
+          quest.first_number = this.randomNo(item.start_number, item.end_number) ;
+          //quest.sec_number = 0
+          quest.title = "Find Missing";
+          quest.correct_answer = quest.first_number + 1; 
+          quest.sec_number = quest.correct_answer + 1;
+          quest.type = "mission_forword";
+          this.questionData.questionArray.push(quest);
         }
+        this.questionData.totalTime = this.questionData.totalTime + item.time;
+        this.questionData.totalQuestion = this.questionData.totalQuestion + 1;
       }
   }
 
