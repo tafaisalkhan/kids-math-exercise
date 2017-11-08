@@ -59,7 +59,7 @@ export class HomePage {
       this.imgSrc = "assets/imgs/1.png";
    
 
-      //this.timer();
+      this.timer();
       this.loadData();
   }
 
