@@ -4,6 +4,7 @@ import { Component, ViewChild, } from '@angular/core';
 import { Chart } from 'chart.js';
 import { ExamDetailPage } from '../../pages/exam-detail/exam-detail';
 import { DetailResultPage } from '../../pages/detail-result/detail-result';
+import { SelectGreadePage } from '../../pages/select-greade/select-greade';
 import { QuestionServiceProvider } from '../../providers/question-service/question-service';
 import { QuestionDataProvider } from '../../providers/question-data/question-data';
 /**
@@ -26,6 +27,7 @@ totalQuestion: number = 0;
 totalCorrectQuesiton :number = 0;
 resultLableArray: any = [];
 resultDataArray: any = [];
+username: string;
 constructor(public navCtrl: NavController, private questionService: QuestionServiceProvider, private questionData: QuestionDataProvider, public loadingCtrl: LoadingController, public modalCtrl: ModalController) {
 
   
@@ -68,7 +70,7 @@ loadData(){
   this.resultDataArray.push(typeReslutCount); 
 
   this.percentage =Math.round((this.totalCorrectQuesiton / this.totalQuestion) * 100)
- 
+  this.username = this.questionData.username;
 
 }
 
@@ -84,9 +86,12 @@ restartQuiz(){
 ionViewDidLoad() {
   this.loadData();
   this.generateGraph();
-
+  
 }
 
+newQuiz(){
+  this.navCtrl.setRoot(SelectGreadePage);
+}
 generateGraph(){
 
   this.barChart = new Chart(this.barCanvas.nativeElement, {

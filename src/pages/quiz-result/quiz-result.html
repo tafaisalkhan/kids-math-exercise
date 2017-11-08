@@ -9,6 +9,13 @@
   <ion-content>
    
       <ion-card>
+
+          <ion-card-content style="text-align: center;font-size: large; font-weight: 900; text-align: center;">
+            Student: {{username}} 
+          </ion-card-content>
+        </ion-card>
+
+      <ion-card>
           <ion-card-header style="    background-color: #ea3324;
           color: white;
           font-size: large;
@@ -36,4 +43,5 @@
      
       <button ion-button full (click)="quizDetail()" >Quiz Detail</button>
       <button ion-button full (click)="restartQuiz()">Restart Quiz</button>
+      <button ion-button full (click)="newQuiz()">New Quiz</button>
   </ion-content>
