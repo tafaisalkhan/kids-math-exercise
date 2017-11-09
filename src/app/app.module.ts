@@ -18,8 +18,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { QuestionConstantProvider } from '../providers/question-constant/question-constant';
 import { QuestionServiceProvider } from '../providers/question-service/question-service';
 import { Media, MediaObject } from '@ionic-native/media';
-import {AngularFireDatabaseModule} from 'angularfire2/database';
-import {AngularFireModule} from 'angularfire2';
+//import {AngularFireDatabaseModule} from 'angularfire2/database';
+//import {AngularFireModule} from 'angularfire2';
 import { QuestionDataProvider } from '../providers/question-data/question-data';
 import { QuestionSingleDataProvider } from '../providers/question-single-data/question-single-data';
 //import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
@@ -51,10 +51,10 @@ const firebaseConfig = {
     HttpModule,
     JsonpModule,
     BrowserAnimationsModule,
-    AngularFireDatabaseModule,
-    AngularFireModule.initializeApp(firebaseConfig),
-    
-    IonicModule.forRoot(MyApp)
+    //AngularFireDatabaseModule,
+    //AngularFireModule.initializeApp(firebaseConfig),
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [

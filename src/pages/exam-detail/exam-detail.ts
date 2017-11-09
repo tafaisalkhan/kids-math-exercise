@@ -4,6 +4,7 @@ import { QuestionServiceProvider } from '../../providers/question-service/questi
 import { QuestionDataProvider } from '../../providers/question-data/question-data';
 import { HomePage } from '../../pages/home/home';
 import { StartGamePage } from '../../pages/start-game/start-game';
+import { Storage } from '@ionic/storage';
 /**
  * Generated class for the ExamDetailPage page.
  *
@@ -18,7 +19,8 @@ import { StartGamePage } from '../../pages/start-game/start-game';
 })
 export class ExamDetailPage {
   questionList: any = [];
-  constructor(public navCtrl: NavController, public navParams: NavParams, private questionService: QuestionServiceProvider, private questionData: QuestionDataProvider, public loadingCtrl: LoadingController) {
+  version;
+  constructor(public navCtrl: NavController, public navParams: NavParams, private questionService: QuestionServiceProvider, private storage: Storage, private questionData: QuestionDataProvider, public loadingCtrl: LoadingController) {
   }
 
 
@@ -28,7 +30,7 @@ export class ExamDetailPage {
   }
 
   loadData(){
-    this.questionService.getQuestionList()
+  /* this.questionService.getQuestionList()
     .subscribe(data => {
       this.questionData.questions = data.kids_math.filter(grade => grade.name === this.questionData.selectedGrade);
       debugger;
@@ -41,8 +43,59 @@ export class ExamDetailPage {
 
 
     }
-    );;
+    );;*/
   
+
+
+    //this.storage.set('kidMathQuestionList',null);
+    this.storage.get('kidMathQuestionList').then((val) => {
+      if (val != null){
+        this.questionData.questions = val.kids_math.filter(grade => grade.name === this.questionData.selectedGrade);
+        this.questionList = this.questionData.questions[0].questions;
+        this.storage.get('kidMathVersion').then((val) => {
+          if (val != null){
+            this.version =  val;
+    
+            this.questionService.getQuestionList()
+            .subscribe(data => {
+              if(this.version != data.version){
+                this.questionData.questions = data.kids_math.filter(grade => grade.name === this.questionData.selectedGrade);
+                this.questionList = this.questionData.questions[0].questions;
+                this.version = data.version;
+                this.storage.set('kidMathQuestionList', data);
+                this.storage.set('kidMathVersion', data.version);
+              }
+            
+              },
+            (err) => {console.log(err);      
+              }
+              );
+           
+          }
+         
+        });
+        
+      }
+      else
+      {
+       //this.questionServiceProvider.getQuestion()
+       this.questionService.getQuestionList()
+          .subscribe(data => {
+            //this.dataList = data['questions'].type ;
+            //this.version = data['questions'].version;
+            //console.log(this.dataList);
+            this.questionData.questions = data.kids_math.filter(grade => grade.name === this.questionData.selectedGrade);
+            this.questionList = this.questionData.questions[0].questions;
+           
+            this.version = data.version;
+            this.storage.set('kidMathQuestionList', data);
+            this.storage.set('kidMathVersion', data.version);
+            },
+          (err) => {console.log(err);      
+            }
+            );
+          }
+    });
       
   }
   startQuiz(){

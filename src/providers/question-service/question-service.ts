@@ -6,6 +6,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { QuestionDataProvider } from '../../providers/question-data/question-data';
 import { QuestionSingleDataProvider } from '../../providers/question-single-data/question-single-data';
+//import { AngularFireDatabase } from 'angularfire2/database';
 /*
   Generated class for the QuestionServiceProvider provider.
 
@@ -20,9 +21,9 @@ export class QuestionServiceProvider {
         console.log('Hello QuestionServiceProvider Provider');
   }
 
-  getFireBaseQuestionList(){
-    return null; // this.afd.list('app_data')
-  }
+  //getFireBaseQuestionList(){
+  //  return this.afd.list('kids_math').valueChanges();
+ // }
 
   getQuestionList() : Observable<any>{
    

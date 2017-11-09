@@ -14,7 +14,8 @@
             <ion-row>
              
               <ion-col class="timer_col">
-                  <span>Time Left: <span style="color:blueviolet" class="blink_me"> {{count}}</span> </span>
+                  <span>Time Left: <span style="color:blueviolet" [ngClass]="count < 6  ? 'blink_me' : ''"> {{count}}</span> </span>
+                 
               </ion-col>
              
             </ion-row>

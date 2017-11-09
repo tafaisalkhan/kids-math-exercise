@@ -30,7 +30,7 @@
         "@ionic-native/splash-screen": "3.12.1",
         "@ionic-native/status-bar": "3.12.1",
         "@ionic/storage": "2.0.1",
-        "angularfire2": "^5.0.0-rc.3",
+        "angularfire2": "^4.0.0-rc0",
         "chart.js": "^2.7.1",
         "cordova-android": "^6.3.0",
         "cordova-plugin-compat": "^1.2.0",

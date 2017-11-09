@@ -55,6 +55,7 @@ export class HomePage {
   questionIndex = 0;
   sigleQuestion: QuestionSingleDataProvider;
   subscription: any;
+  timerCount:number;
   constructor(public navCtrl: NavController, private questionService: QuestionServiceProvider,  private questionData: QuestionDataProvider, public alertCtrl: AlertController) {
       this.imgSrc = "assets/imgs/1.png";
    
@@ -171,7 +172,7 @@ export class HomePage {
     let timer:any = Observable.timer(0,1000);
     this.subscription = timer.subscribe(data => {
       this.count = Math.abs(this.count) -1;
-      if(data == 5) {
+      if(data == this.timerCount -1) {
         this.watchMe = "fade";
         this.subscription.unsubscribe();
       }
@@ -213,6 +214,7 @@ export class HomePage {
     this.correctAnswer = this.sigleQuestion.correct_answer;
     this.questionIndex = this.questionIndex + 1;
     this.count = this.sigleQuestion.time;
+    this.timerCount = this.sigleQuestion.time;
   }
   
   showAlert() {
