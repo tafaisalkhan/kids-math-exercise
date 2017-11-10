@@ -34,6 +34,7 @@ export class QuestionServiceProvider {
       .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
 
 }
+/*
 generateQuestion(questions: any){
  debugger;
  this.questionData.questionArray = [];
@@ -126,6 +127,135 @@ generateQuestion(questions: any){
 
  
   }
+*/
+  generateQuestionCustome(questions: any){
+    debugger;
+    this.questionData.questionArray = [];
+    this.questionData.totalTime = 0;
+    this.questionData.totalQuestion = 0;
+
+    if(this.questionData.tableType){
+      for(let tmpQuest = 0; tmpQuest < this.questionData.tableQuesitonCount ; tmpQuest ++ ){
+        let quest = new QuestionSingleDataProvider();
+        quest.operartion = "*";
+        quest.first_number = this.randomNo(questions.filter(data => data.type == "table")[0].start_number, questions.filter(data => data.type == "table")[0].end_number) ;
+        quest.sec_number = this.randomNo(1, 10) ;
+        quest.title = "Table";
+        quest.correct_answer = quest.first_number * quest.sec_number;
+        quest.type = "table";
+        quest.time = this.questionData.tableQuesitonTime
+        this.questionData.questionArray.push(quest);
+        this.questionData.totalTime = this.questionData.totalTime + quest.time -1;
+        this.questionData.totalQuestion = this.questionData.totalQuestion + 1;
+      }
+
+    }
+
+    if(this.questionData.addType){
+      for(let tmpQuest = 0; tmpQuest < this.questionData.addQuesitonCount ; tmpQuest ++ ){
+        let quest = new QuestionSingleDataProvider();
+        quest.operartion = "+";
+        quest.first_number = this.randomNo(questions.filter(data => data.type == "addition")[0].start_number, questions.filter(data => data.type == "addition")[0].end_number) ;
+        quest.sec_number = this.randomNo(questions.filter(data => data.type == "addition")[0].start_number, questions.filter(data => data.type == "addition")[0].end_number) ;
+        quest.title = "Addition";
+        quest.correct_answer = quest.first_number + quest.sec_number;
+        quest.type = "addition";
+        quest.time = this.questionData.addQuesitonTime
+        this.questionData.questionArray.push(quest);
+        this.questionData.totalTime = this.questionData.totalTime + quest.time -1;
+        this.questionData.totalQuestion = this.questionData.totalQuestion + 1;
+      }
+
+    }
+    if (this.questionData.subType){
+      for(let tmpQuest = 0; tmpQuest < this.questionData.subQuesitonCount ; tmpQuest ++ ){
+        let quest = new QuestionSingleDataProvider();
+        quest.operartion = "-";
+        quest.first_number = this.randomNo(questions.filter(data => data.type == "subtraction")[0].start_number, questions.filter(data => data.type == "subtraction")[0].end_number);
+        quest.sec_number = this.randomNo(questions.filter(data => data.type == "subtraction")[0].start_number, questions.filter(data => data.type == "subtraction")[0].end_number) ;
+        if(quest.sec_number > quest.first_number){
+          let tmp = quest.first_number;
+          quest.first_number = quest.sec_number;
+          quest.sec_number = tmp;
+        }
+        quest.title = "Subtraction";
+        quest.correct_answer = quest.first_number - quest.sec_number;
+        quest.type = "subtraction";
+        quest.time = this.questionData.subQuesitonTime
+        this.questionData.questionArray.push(quest);
+        this.questionData.totalTime = this.questionData.totalTime + quest.time -1;
+        this.questionData.totalQuestion = this.questionData.totalQuestion + 1;
+      }
+    }
+
+    if (this.questionData.mulType){
+      for(let tmpQuest = 0; tmpQuest < this.questionData.mulQuesitonCount ; tmpQuest ++ ){
+        let quest = new QuestionSingleDataProvider();
+        quest.operartion = "*";
+        quest.first_number = this.randomNo(questions.filter(data => data.type == "multipul")[0].start_number, questions.filter(data => data.type == "multipul")[0].end_number) ;
+        quest.sec_number = this.randomNo(questions.filter(data => data.type == "multipul")[0].start_number, questions.filter(data => data.type == "multipul")[0].end_number) ;
+        quest.title = " Multipul ";
+        quest.correct_answer = quest.first_number * quest.sec_number;
+        quest.type = "multipul";
+        quest.time = this.questionData.mulQuesitonTime
+        this.questionData.questionArray.push(quest);
+        this.questionData.totalTime = this.questionData.totalTime + quest.time -1;
+        this.questionData.totalQuestion = this.questionData.totalQuestion + 1;
+      }
+    }
+
+    if (this.questionData.divType){
+      for(let tmpQuest = 0; tmpQuest < this.questionData.mulQuesitonCount ; tmpQuest ++ ){
+        let quest = new QuestionSingleDataProvider();
+        quest.operartion = "/";
+        //uest.first_number = this.randomNo(item.start_number, item.end_number) ;
+        quest.sec_number = this.randomNo(questions.filter(data => data.type == "divide")[0].start_number, questions.filter(data => data.type == "divide")[0].end_number) ;
+        quest.first_number =  quest.sec_number * this.randomNo(1, 4)
+        quest.title = "Divided";
+        quest.correct_answer = quest.first_number / quest.sec_number;
+        quest.type = "divide";
+        quest.time = this.questionData.divQuesitonTime
+        this.questionData.questionArray.push(quest);
+        this.questionData.totalTime = this.questionData.totalTime + quest.time -1;
+        this.questionData.totalQuestion = this.questionData.totalQuestion + 1;
+      }
+    }
+    
+    if (this.questionData.mnbType){
+      for(let tmpQuest = 0; tmpQuest < this.questionData.mnbQuesitonCount ; tmpQuest ++ ){
+        let quest = new QuestionSingleDataProvider();
+        quest.operartion = "?";
+        //quest.first_number = 0
+        quest.first_number = this.randomNo(questions.filter(data => data.type == "mission_backword")[0].start_number, questions.filter(data => data.type == "mission_backword")[0].end_number) ;
+        quest.title = "Find Missing";
+        quest.correct_answer = quest.first_number - 1; 
+        quest.sec_number = quest.correct_answer - 1;
+        quest.type = "mission_backword";
+        quest.time = this.questionData.mnbQuesitonTime
+        this.questionData.questionArray.push(quest);
+        this.questionData.totalTime = this.questionData.totalTime + quest.time -1;
+        this.questionData.totalQuestion = this.questionData.totalQuestion + 1;
+      }
+    }
+
+    if (this.questionData.mnfType){
+      for(let tmpQuest = 0; tmpQuest < this.questionData.mnfQuesitonCount ; tmpQuest ++ ){
+        let quest = new QuestionSingleDataProvider();
+        quest.operartion = "?";
+        quest.first_number = this.randomNo(questions.filter(data => data.type == "mission_forword")[0].start_number, questions.filter(data => data.type == "mission_forword")[0].end_number) ;
+        //quest.sec_number = 0
+        quest.title = "Find Missing";
+        quest.correct_answer = quest.first_number + 1; 
+        quest.sec_number = quest.correct_answer + 1;
+        quest.type = "mission_forword";
+        quest.time = this.questionData.mnfQuesitonTime
+        this.questionData.questionArray.push(quest);
+        this.questionData.totalTime = this.questionData.totalTime + quest.time -1;
+        this.questionData.totalQuestion = this.questionData.totalQuestion + 1;
+      }
+    }
+
+     }
 
   randomNo(startNo:number , endNo: number){
     //return  Math.floor(Math.random() * endNo) + startNo ;

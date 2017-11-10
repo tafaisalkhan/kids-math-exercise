@@ -18,12 +18,13 @@
      
   
   
-    <ion-card style="margin-top:30%">   
+    <ion-card >   
         <ion-card-content>
+            <button ion-button full (click)="startQuiz()" [disabled]="!user.valid">Select Student Name And Grade</button>
           <form [formGroup]="user" > 
           <ion-list>
             <ion-item>
-              <ion-input  type="text" formControlName="username" placeholder="Username" ></ion-input>
+              <ion-input  type="text" formControlName="username" [(ngModel)]="username" placeholder="Username" ></ion-input>
             </ion-item>
           <!--
             <ion-item>
@@ -41,10 +42,10 @@
               
               </ion-select>
             </ion-item> 
-          <!--
+         
             <ion-item>
                 <ion-label>Tables</ion-label>
-                <ion-checkbox color="dark"  [(ngModel)]="ckhTable" formControlName="ckhTable"></ion-checkbox>
+                <ion-checkbox color="dark"  [(ngModel)]="chkTable" formControlName="chkTable"></ion-checkbox>
                 
 
                 
@@ -67,6 +68,7 @@
                     <ion-option value="61" >60 Second</ion-option>
                   </ion-select>
               </ion-item> 
+            
               <ion-item>
                     <ion-label>Question Count</ion-label>
                     <ion-select [(ngModel)]="tableQuestion"  formControlName="tableQuestion">
@@ -78,39 +80,10 @@
                     </ion-select>
               </ion-item> 
           
-              <ion-item>
-                  <ion-label>Start No</ion-label>
-                  <ion-select [(ngModel)]="tableStart"  formControlName="tableStart">
-                    <ion-option value="2" selecled="true">2</ion-option>
-                    <ion-option value="3" >3</ion-option>
-                    <ion-option value="4" >4</ion-option>
-                    <ion-option value="5" >5</ion-option>
-                    <ion-option value="6" >6</ion-option>
-                    <ion-option value="7" >7</ion-option>
-                    <ion-option value="8" >8</ion-option>
-                    <ion-option value="9" >9</ion-option>
-                    <ion-option value="10" >10</ion-option>
-                    
-                  </ion-select>
-              </ion-item> 
-              <ion-item>
-                  <ion-label>End No</ion-label>
-                  <ion-select [(ngModel)]="tableEnd"  formControlName="tableEnd">
-                    <ion-option value="2" selecled="true">2</ion-option>
-                    <ion-option value="3" >3</ion-option>
-                    <ion-option value="4" >4</ion-option>
-                    <ion-option value="5" >5</ion-option>
-                    <ion-option value="6" >6</ion-option>
-                    <ion-option value="7" >7</ion-option>
-                    <ion-option value="8" >8</ion-option>
-                    <ion-option value="9" >9</ion-option>
-                    <ion-option value="10" >10</ion-option>
-                    
-                  </ion-select>
-              </ion-item> 
+            
               <ion-item>
                   <ion-label>Addition</ion-label>
-                  <ion-checkbox color="dark" [(ngModel)]="ckhAdd" formControlName="ckhAdd"></ion-checkbox>
+                  <ion-checkbox color="dark" [(ngModel)]="chkAdd" formControlName="chkAdd"></ion-checkbox>
    
                   
                 </ion-item>
@@ -141,39 +114,10 @@
                         
                       </ion-select>
                 </ion-item> 
-                <ion-item>
-                    <ion-label>Start No</ion-label>
-                    <ion-select [(ngModel)]="addStart"  formControlName="addStart">
-                      <ion-option value="1" selecled="true">1</ion-option>
-                      <ion-option value="10" >3</ion-option>
-                      <ion-option value="50" >4</ion-option>
-                      <ion-option value="100" >5</ion-option>
-                      <ion-option value="200" >6</ion-option>
-                      <ion-option value="400" >7</ion-option>
-                      <ion-option value="600" >8</ion-option>
-                      <ion-option value="700" >9</ion-option>
-                      <ion-option value="1000" >10</ion-option>
-                      
-                    </ion-select>
-                </ion-item> 
-                <ion-item>
-                    <ion-label>End No</ion-label>
-                    <ion-select [(ngModel)]="addEnd"  formControlName="addEnd">
-                        <ion-option value="10" selecled="true">10</ion-option>
-                        <ion-option value="20" >3</ion-option>
-                        <ion-option value="50" >4</ion-option>
-                        <ion-option value="100" >5</ion-option>
-                        <ion-option value="200" >6</ion-option>
-                        <ion-option value="400" >7</ion-option>
-                        <ion-option value="600" >8</ion-option>
-                        <ion-option value="700" >9</ion-option>
-                        <ion-option value="1000" >10</ion-option>
-                      
-                    </ion-select>
-                </ion-item> 
+             
                 <ion-item>
                     <ion-label>Subtraction</ion-label>
-                    <ion-checkbox color="dark" [(ngModel)]="ckhSub" formControlName="ckhSub"></ion-checkbox>
+                    <ion-checkbox color="dark" [(ngModel)]="chkSub" formControlName="chkSub"></ion-checkbox>
      
                     
                   </ion-item>
@@ -205,40 +149,11 @@
                         </ion-select>
                   </ion-item>  
 
-                  <ion-item>
-                      <ion-label>Start No</ion-label>
-                      <ion-select [(ngModel)]="subStart"  formControlName="subStart">
-                        <ion-option value="1" selecled="true">1</ion-option>
-                        <ion-option value="10" >3</ion-option>
-                        <ion-option value="50" >4</ion-option>
-                        <ion-option value="100" >5</ion-option>
-                        <ion-option value="200" >6</ion-option>
-                        <ion-option value="400" >7</ion-option>
-                        <ion-option value="600" >8</ion-option>
-                        <ion-option value="700" >9</ion-option>
-                        <ion-option value="1000" >10</ion-option>
-                        
-                      </ion-select>
-                  </ion-item> 
-                  <ion-item>
-                      <ion-label>End No</ion-label>
-                      <ion-select [(ngModel)]="subEnd"  formControlName="subEnd">
-                          <ion-option value="10" selecled="true">10</ion-option>
-                          <ion-option value="20" >3</ion-option>
-                          <ion-option value="50" >4</ion-option>
-                          <ion-option value="100" >5</ion-option>
-                          <ion-option value="200" >6</ion-option>
-                          <ion-option value="400" >7</ion-option>
-                          <ion-option value="600" >8</ion-option>
-                          <ion-option value="700" >9</ion-option>
-                          <ion-option value="1000" >10</ion-option>
-                        
-                      </ion-select>
-                  </ion-item> 
+               
 
                   <ion-item>
                       <ion-label>Multipul</ion-label>
-                      <ion-checkbox color="dark" [(ngModel)]="ckhMul" formControlName="ckhMul"></ion-checkbox>
+                      <ion-checkbox color="dark" [(ngModel)]="chkMul" formControlName="chkMul"></ion-checkbox>
        
                       
                     </ion-item>
@@ -269,196 +184,108 @@
                             
                           </ion-select>
                     </ion-item>    
+                   
                     <ion-item>
-                      <ion-label>Start No</ion-label>
-                        <ion-select [(ngModel)]="mulStart"  formControlName="mulStart">
-                          <ion-option value="2" selecled="true">2</ion-option>
-                          <ion-option value="5" >5</ion-option>
-                          <ion-option value="6" >6</ion-option>
-                          <ion-option value="8" >8</ion-option>
-                          <ion-option value="10" >10</ion-option>
-                          <ion-option value="12" >12</ion-option>
-                          <ion-option value="15" >15</ion-option>
-                          <ion-option value="20" >20</ion-option>
-                          <ion-option value="25" >25</ion-option>
-                          
+                      <ion-label>Divide</ion-label>
+                      <ion-checkbox color="dark" [(ngModel)]="chkDiv" formControlName="chkDiv"></ion-checkbox>
+       
+                      
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>Time</ion-label>
+                        <ion-select [(ngModel)]="divTime"  formControlName="divTime">
+                          <ion-option value="6" >5 Second</ion-option>
+                          <ion-option value="11" >10 Second</ion-option>
+                          <ion-option value="16" >15 Second</ion-option>
+                          <ion-option value="21" >20 Second</ion-option>
+                          <ion-option value="26" >25 Second</ion-option>
+                          <ion-option value="31" >30 Second</ion-option>
+                          <ion-option value="36" >35 Second</ion-option>
+                          <ion-option value="41" >40 Second</ion-option>
+                          <ion-option value="46" >45 Second</ion-option>
+                          <ion-option value="51" >50 Second</ion-option>
+                          <ion-option value="56" >55 Second</ion-option>
+                          <ion-option value="61" >60 Second</ion-option>
                         </ion-select>
                     </ion-item> 
                     <ion-item>
-                        <ion-label>End No</ion-label>
-                        <ion-select [(ngModel)]="mulEnd"  formControlName="mulEnd">
-                            <ion-option value="2" selecled="true">2</ion-option>
-                            <ion-option value="5" >5</ion-option>
-                            <ion-option value="6" >6</ion-option>
-                            <ion-option value="8" >8</ion-option>
-                            <ion-option value="10" >10</ion-option>
-                            <ion-option value="12" >12</ion-option>
-                            <ion-option value="15" >15</ion-option>
-                            <ion-option value="20" >20</ion-option>
-                            <ion-option value="25" >25</ion-option>
-                          
-                        </ion-select>
-                    </ion-item> 
-                    <ion-item>
-                        <ion-label>Divide</ion-label>
-                        <ion-checkbox color="dark" [(ngModel)]="ckhDiv" formControlName="ckhDiv"></ion-checkbox>
-         
-                        
-                      </ion-item>
-                      <ion-item>
-                          <ion-label>Time</ion-label>
-                          <ion-select [(ngModel)]="divTime"  formControlName="divTime">
-                            <ion-option value="6" >5 Second</ion-option>
-                            <ion-option value="11" >10 Second</ion-option>
-                            <ion-option value="16" >15 Second</ion-option>
-                            <ion-option value="21" >20 Second</ion-option>
-                            <ion-option value="26" >25 Second</ion-option>
-                            <ion-option value="31" >30 Second</ion-option>
-                            <ion-option value="36" >35 Second</ion-option>
-                            <ion-option value="41" >40 Second</ion-option>
-                            <ion-option value="46" >45 Second</ion-option>
-                            <ion-option value="51" >50 Second</ion-option>
-                            <ion-option value="56" >55 Second</ion-option>
-                            <ion-option value="61" >60 Second</ion-option>
-                          </ion-select>
-                      </ion-item> 
-                      <ion-item>
-                            <ion-label>Question Count</ion-label>
-                            <ion-select [(ngModel)]="divQuestion"  formControlName="divQuestion">
-                              <ion-option value="5" >5 Question</ion-option>
-                              <ion-option value="10" >10 Question</ion-option>
-                              <ion-option value="15" >15 Question</ion-option>
-                              <ion-option value="20" >20 Question</ion-option>
-                              
-                            </ion-select>
-                      </ion-item> 
-                      <ion-label>Start No</ion-label>
-                      <ion-select [(ngModel)]="divStart"  formControlName="divStart">
-                        <ion-option value="2" selecled="true">2</ion-option>
-                        <ion-option value="5" >5</ion-option>
-                        <ion-option value="6" >6</ion-option>
-                        <ion-option value="8" >8</ion-option>
-                        <ion-option value="10" >10</ion-option>
-                        <ion-option value="12" >12</ion-option>
-                        <ion-option value="15" >15</ion-option>
-                        <ion-option value="20" >20</ion-option>
-                        <ion-option value="25" >25</ion-option>
-                        
-                      </ion-select>
-                  </ion-item> 
-                  <ion-item>
-                      <ion-label>End No</ion-label>
-                      <ion-select [(ngModel)]="divEnd"  formControlName="divEnd">
-                          <ion-option value="2" selecled="true">2</ion-option>
-                          <ion-option value="5" >5</ion-option>
-                          <ion-option value="6" >6</ion-option>
-                          <ion-option value="8" >8</ion-option>
-                          <ion-option value="10" >10</ion-option>
-                          <ion-option value="12" >12</ion-option>
-                          <ion-option value="15" >15</ion-option>
-                          <ion-option value="20" >20</ion-option>
-                          <ion-option value="25" >25</ion-option>
-                        
-                      </ion-select>
-                  </ion-item>   
-                      <ion-item>
-                          <ion-label>Miision Number Front</ion-label>
-                          <ion-checkbox color="dark" [(ngModel)]="ckhMnf" formControlName="ckhMnf"></ion-checkbox>
-           
-                          
-                        </ion-item>
-                        <ion-item>
-                            <ion-label>Time</ion-label>
-                            <ion-select [(ngModel)]="mnfTime"  formControlName="mnfTime">
-                              <ion-option value="6" >5 Second</ion-option>
-                              <ion-option value="11" >10 Second</ion-option>
-                              <ion-option value="16" >15 Second</ion-option>
-                              <ion-option value="21" >20 Second</ion-option>
-                              <ion-option value="26" >25 Second</ion-option>
-                              <ion-option value="31" >30 Second</ion-option>
-                              <ion-option value="36" >35 Second</ion-option>
-                              <ion-option value="41" >40 Second</ion-option>
-                              <ion-option value="46" >45 Second</ion-option>
-                              <ion-option value="51" >50 Second</ion-option>
-                              <ion-option value="56" >55 Second</ion-option>
-                              <ion-option value="61" >60 Second</ion-option>
-                            </ion-select>
-                        </ion-item> 
-                        <ion-item>
-                              <ion-label>Question Count</ion-label>
-                              <ion-select [(ngModel)]="mnfQuestion"  formControlName="mnfQuestion">
-                                <ion-option value="5" >5 Question</ion-option>
-                                <ion-option value="10" >10 Question</ion-option>
-                                <ion-option value="15" >15 Question</ion-option>
-                                <ion-option value="20" >20 Question</ion-option>
-                                
-                              </ion-select>
-                        </ion-item> 
-                        
-                        <ion-label>Start No</ion-label>
-                        <ion-select [(ngModel)]="mmfStart"  formControlName="mnfStart">
-                          <ion-option value="2" selecled="true">2</ion-option>
-                          <ion-option value="5" >5</ion-option>
-                          <ion-option value="6" >6</ion-option>
-                          <ion-option value="8" >8</ion-option>
-                          <ion-option value="10" >10</ion-option>
-                          <ion-option value="12" >12</ion-option>
-                          <ion-option value="15" >15</ion-option>
-                          <ion-option value="20" >20</ion-option>
-                          <ion-option value="25" >25</ion-option>
-                          
-                        </ion-select>
-                    </ion-item> 
-                    <ion-item>
-                        <ion-label>End No</ion-label>
-                        <ion-select [(ngModel)]="mnfEnd"  formControlName="mnfEnd">
-                            <ion-option value="2" selecled="true">2</ion-option>
-                            <ion-option value="5" >5</ion-option>
-                            <ion-option value="6" >6</ion-option>
-                            <ion-option value="8" >8</ion-option>
-                            <ion-option value="10" >10</ion-option>
-                            <ion-option value="12" >12</ion-option>
-                            <ion-option value="15" >15</ion-option>
-                            <ion-option value="20" >20</ion-option>
-                            <ion-option value="25" >25</ion-option>
-                          
-                        </ion-select>
-                    </ion-item> 
-                        
-                        <ion-item>
-                            <ion-label>Miision Number Back</ion-label>
-                            <ion-checkbox color="dark" [(ngModel)]="ckhMnb" formControlName="ckhMnb"></ion-checkbox>
-             
+                          <ion-label>Question Count</ion-label>
+                          <ion-select [(ngModel)]="divQuestion"  formControlName="divQuestion">
+                            <ion-option value="5" >5 Question</ion-option>
+                            <ion-option value="10" >10 Question</ion-option>
+                            <ion-option value="15" >15 Question</ion-option>
+                            <ion-option value="20" >20 Question</ion-option>
                             
-                          </ion-item>
-                          <ion-item>
-                              <ion-label>Time</ion-label>
-                              <ion-select [(ngModel)]="mnbTime"  formControlName="mnbTime">
-                                <ion-option value="6" >5 Second</ion-option>
-                                <ion-option value="11" >10 Second</ion-option>
-                                <ion-option value="16" >15 Second</ion-option>
-                                <ion-option value="21" >20 Second</ion-option>
-                                <ion-option value="26" >25 Second</ion-option>
-                                <ion-option value="31" >30 Second</ion-option>
-                                <ion-option value="36" >35 Second</ion-option>
-                                <ion-option value="41" >40 Second</ion-option>
-                                <ion-option value="46" >45 Second</ion-option>
-                                <ion-option value="51" >50 Second</ion-option>
-                                <ion-option value="56" >55 Second</ion-option>
-                                <ion-option value="61" >60 Second</ion-option>
-                              </ion-select>
-                          </ion-item> 
-                          <ion-item>
-                                <ion-label>Question Count</ion-label>
-                                <ion-select [(ngModel)]="mnbQuestion"  formControlName="mnbQuestion">
-                                  <ion-option value="5" >5 Question</ion-option>
-                                  <ion-option value="10" >10 Question</ion-option>
-                                  <ion-option value="15" >15 Question</ion-option>
-                                  <ion-option value="20" >20 Question</ion-option>
-                                  
-                                </ion-select>
-                          </ion-item> 
-                        --> 
+                          </ion-select>
+                    </ion-item>    
+                   
+                    <ion-item>
+                      <ion-label>Missing Number Forward</ion-label>
+                      <ion-checkbox color="dark" [(ngModel)]="chkMnf" formControlName="chkMnf"></ion-checkbox>
+       
+                      
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>Time</ion-label>
+                        <ion-select [(ngModel)]="mnfTime"  formControlName="mnfTime">
+                          <ion-option value="6" >5 Second</ion-option>
+                          <ion-option value="11" >10 Second</ion-option>
+                          <ion-option value="16" >15 Second</ion-option>
+                          <ion-option value="21" >20 Second</ion-option>
+                          <ion-option value="26" >25 Second</ion-option>
+                          <ion-option value="31" >30 Second</ion-option>
+                          <ion-option value="36" >35 Second</ion-option>
+                          <ion-option value="41" >40 Second</ion-option>
+                          <ion-option value="46" >45 Second</ion-option>
+                          <ion-option value="51" >50 Second</ion-option>
+                          <ion-option value="56" >55 Second</ion-option>
+                          <ion-option value="61" >60 Second</ion-option>
+                        </ion-select>
+                    </ion-item> 
+                    <ion-item>
+                          <ion-label>Question Count</ion-label>
+                          <ion-select [(ngModel)]="mnfQuestion"  formControlName="mnfQuestion">
+                            <ion-option value="5" >5 Question</ion-option>
+                            <ion-option value="10" >10 Question</ion-option>
+                            <ion-option value="15" >15 Question</ion-option>
+                            <ion-option value="20" >20 Question</ion-option>
+                            
+                          </ion-select>
+                    </ion-item>    
+                    
+                    <ion-item>
+                      <ion-label>Missing Number Backwork</ion-label>
+                      <ion-checkbox color="dark" [(ngModel)]="chkMnb" formControlName="chkMnb"></ion-checkbox>
+       
+                      
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>Time</ion-label>
+                        <ion-select [(ngModel)]="mnbTime"  formControlName="mnbTime">
+                          <ion-option value="6" >5 Second</ion-option>
+                          <ion-option value="11" >10 Second</ion-option>
+                          <ion-option value="16" >15 Second</ion-option>
+                          <ion-option value="21" >20 Second</ion-option>
+                          <ion-option value="26" >25 Second</ion-option>
+                          <ion-option value="31" >30 Second</ion-option>
+                          <ion-option value="36" >35 Second</ion-option>
+                          <ion-option value="41" >40 Second</ion-option>
+                          <ion-option value="46" >45 Second</ion-option>
+                          <ion-option value="51" >50 Second</ion-option>
+                          <ion-option value="56" >55 Second</ion-option>
+                          <ion-option value="61" >60 Second</ion-option>
+                        </ion-select>
+                    </ion-item> 
+                    <ion-item>
+                          <ion-label>Question Count</ion-label>
+                          <ion-select [(ngModel)]="mnbQuestion"  formControlName="mnbQuestion">
+                            <ion-option value="5" >5 Question</ion-option>
+                            <ion-option value="10" >10 Question</ion-option>
+                            <ion-option value="15" >15 Question</ion-option>
+                            <ion-option value="20" >20 Question</ion-option>
+                            
+                          </ion-select>
+                    </ion-item>    
           </form>
           <button ion-button full (click)="startQuiz()" [disabled]="!user.valid">Select Student Name And Grade</button>
         </ion-card-content>

@@ -101,7 +101,7 @@ export class ExamDetailPage {
   startQuiz(){
     var that = this
     this.presentLoading()
-    that.questionService.generateQuestion(that.questionList);
+    that.questionService.generateQuestionCustome(that.questionList);
     setTimeout(function() {
       
       that.navCtrl.push(StartGamePage);
